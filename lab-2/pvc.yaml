@@ -1,12 +1,11 @@
 ---
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: data-pv
+  name: data-pvc
 spec:
   accessModes: ["ReadWriteMany"]
-  capacity:
-    storage: 1Gi
-  hostPath:
-    path: /web
-    type: DirectoryOrCreate
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: data-pv
